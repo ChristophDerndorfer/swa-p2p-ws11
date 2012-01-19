@@ -26,11 +26,28 @@ public class Client {
 
 			File fileIn = new File(filename);
 
-
 			try {
+				
+				/*AudioInputStream in= AudioSystem.getAudioInputStream(fileIn);
+				AudioInputStream din = null;
+				AudioFormat baseFormat = in.getFormat();
+				AudioFormat decodedFormat =
+				    new AudioFormat(AudioFormat.Encoding.PCM_SIGNED,
+				                    baseFormat.getSampleRate(),
+				                    16,
+				                    baseFormat.getChannels(),
+				                    baseFormat.getChannels() * 2,
+				                    baseFormat.getSampleRate(),
+				                    false);
+				din = AudioSystem.getAudioInputStream(decodedFormat, in);*/
+				
+				//AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(AudioFormat.Encoding.PCM_SIGNED, AudioSystem.getAudioInputStream(fileIn));
+				
+				System.out.println("File info " + fileIn.getAbsolutePath());
+				
 				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(fileIn);
 
-				System.out.println("Trying to fingerprinting " + fileIn.getName());
+				System.out.println("Trying to fingerprint " + fileIn.getName());
 
 				Fingerprint resultFingerpring =  FingerprintSystem.fingerprint(audioInputStream);
 				
